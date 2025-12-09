@@ -14,7 +14,7 @@ class Docker implements  Serializable {
             // sh 'docker build -t crakram/test-repo:jma-2.0 .'
             script.sh "docker build -t $imageName ."
 
-            script.sh "echo ${script.PASS} | docker login -u ${script.USER} --password-stdin"
+            script.sh "echo '${script.PASS}' | docker login -u '${script.USER}' --password-stdin"
             script.sh "docker push $imageName"
         }
 
