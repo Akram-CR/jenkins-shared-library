@@ -22,10 +22,10 @@ class Git implements  Serializable {
         }
     }
 
-    def gitPush(String versionNumber) {
+    def gitPush(String versionNumber, String branchName) {
         script.sh 'git add .'
         script.sh 'git commit -m "ci: commit version $versionNumber"'
-        script.sh 'git push origin HEAD:jenkins-ci-versions'
+        script.sh 'git push origin HEAD:$branchName'
     }
 
 }
